@@ -15,11 +15,9 @@ class Register(Resource):
         email = data.get('email')
         password = data.get('password')
         
-        # Überprüfen, ob alle Felder ausgefüllt sind
         if not username or not email or not password:
             return jsonify({"message": "Alle Felder müssen ausgefüllt sein"}), 400
         
-        # Benutzer hinzufügen (keine Persistenz)
         user = {"username": username, "email": email, "password": password}
         users.append(user)
         return jsonify({"message": "Registrierung erfolgreich", "user": user})
@@ -31,11 +29,9 @@ class Login(Resource):
         username = data.get('username')
         password = data.get('password')
 
-        # Überprüfen, ob alle Felder ausgefüllt sind
         if not username or not password:
             return jsonify({"message": "Benutzername und Passwort müssen ausgefüllt sein"}), 400
 
-        # Benutzer überprüfen
         for user in users:
             if user['username'] == username and user['password'] == password:
                 return jsonify({"message": "Login erfolgreich"})

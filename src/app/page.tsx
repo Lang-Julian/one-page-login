@@ -31,7 +31,7 @@ const LoginForm = () => {
         setMessage(data.message || 'Fehler beim Login');
       }
     } catch (error) {
-      setMessage('Netzwerkfehler: ' + error);
+      setMessage('Ungültige Anmeldedaten');
     }
   };
 
@@ -66,7 +66,7 @@ const LoginForm = () => {
                 Anmelden
               </button>
             </div>
-            {message && <p className="text-white mt-3 outline">{message}</p>}
+            {message && <p className="text-white mt-3 p-2 outline rounded-xl">{message}</p>}
           </form>
         </aside>
       </div>
